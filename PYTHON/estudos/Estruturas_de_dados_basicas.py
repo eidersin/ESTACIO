@@ -38,6 +38,7 @@ Características:
         não é garantida; além disso, o aumento descontrolado dessa estrutura pode “estourar” a memória do seu
         computador, fazendo com que seu programa pare.
 """
+
 # Vetores e matrizes
 """
 Vetor:
@@ -167,4 +168,205 @@ for linha in matriz:
     aux_linha += 1
     aux_coluna = 0
 
+"""
+# LISTAS
+"""
+Introdução:
+    Algumas estruturas de dados são muito semelhantes, diferindo principalmente na forma como são empregadas. 
+    Esse é o caso das listas, pilhas e filas. Neste módulo, falaremos sobre as listas.
+    
+    Quanto às suas características, as listas são estruturas de dados que podem ser:
+        Lineares:
+            Têm seus dados organizados de forma sequencial.
+        Não homogêneas:
+            Podem conter elementos de diferentes tipos (inteiro, decimal, caracteres etc.).
+        Dinâmicas:
+            Seus tamanhos podem variar durante a execução do programa quando inserimos e removemos elementos.
+            
+Conceitos de lista:
+    Conceitos:
+        Em Python, a classe responsável por implementar as listas se chama list. O list é um dos tipos sequenciais 
+        básicos do Python, assim como tuple e range. Ele é um tipo de dado interno ao Python e não precisa ser importado
+
+        As listas possuem diversos métodos que podem ser utilizados para realizar diversas ações, como inserir ou buscar 
+        elemento, além de inverter e ordenar, entre outros.
+    
+    Definindo uma lista:
+        Para declararmos um objeto do tipo list, podemos proceder de diversas formas:
+            Utilizar apenas os colchetes para declarar uma lista vazia: 
+                lista = []
+            Utilizar os colchetes com os elementos separados por vírgula: 
+                lista = [a, b, c]
+            Utilizar o construtor list(), que aceita como parâmetro outras coleções:
+                lista = list()
+                lista = list([1, 2, 3])
+    Os elementos de uma lista em Python podem ser de diferentes tipos, incluindo outra lista.
+    Exemplo: >>> lista = [1, 'Hello', [1, 2]]
+    
+    É importante considerar que as listas são sequências mutáveis.
+        "Elas podem ser alteradas durante a execução do programa."
+    
+    Acessando os dados da lista:
+        A forma de acessar um elemento da lista é muito similar à das matrizes. Precisa-se apenas do índice do elemento.
+    Exemplo: >>> lista = ['a', 'b', 'c', 'b']
+             >>> item = lista[1]
+             >>> print(item)
+            'b'
+            
+        O método index, que retorna o índice do elemento procurado.    
+                lista = ['a', 'b', 'c', 'b']
+                indice_c = lista.index('c')
+                print(indice_c)
+                indice_b = lista.index('b')
+                print(indice_b)
+        
+        Assim como nas matrizes, podemos utilizar o índice de um elemento para alterá-lo.
+                lista = ['avião', 'helicóptero', 'carro', 'navio']
+                indice_carro = lista.index('carro')
+                print(indice_carro)
+                print(lista)
+                lista[indice_carro] = 'moto'
+                print(lista)
+        
+    Alterando a lista:
+        Por ser dinâmico (ou mutável, no linguajar Python), o objeto do tipo list contém um conjunto de métodos que
+        permite alterar seus elementos.
+        
+        Quando precisamos inserir um novo elemento na lista, podemos utilizar os métodos append ou insert. 
+        Esses métodos executam as inserções da seguinte forma:
+        
+            Append: O método append insere o elemento passado como parâmetro no final da lista
+            Insert: O método insert insere o elemento na posição indicada no parâmetro.
+            Exemplo:
+                        lista = list()
+                        lista.append('carro')
+                        lista.append('moto')
+                        lista.append('avião')
+                        lista.insert(1, 'bicicleta')
+                        print(lista)
+                        
+        Em algumas ocasiões, precisamos juntar duas listas. Para isso, usamos o método extend, em que passamos 
+        uma lista como parâmetro.
+            Exemplo:
+                        lista_a = [1, 2, 3]
+                        lista_b = [4, 5, 6]
+                        lista_a.append(lista_b)
+                        print(lista_a) >>> [1, 2, 3, [4, 5, 6]]
+                        lista_a = [1, 2, 3]
+                        lista_a.extend(lista_b)
+                        print(lista_a) >>> [1, 2, 3, 4, 5, 6]
+                        
+            Ao utilizar o método append, o elemento de índice 3 da lista_a passa a ser a lista_b inteira, [4, 5, 6].
+            Quando utilizamos o método extend, obtemos o resultado desejado.
+            
+        O método remove é utilizado para tirar o elemento passado como parâmetro, enquanto o clear remove todos os 
+        elementos da lista.
+        
+        Para usarmos o método remove, não utilizaremos o índice, e sim o valor do elemento:
+            Exemplo:
+                        lista = ['carro', 'bicicleta', 'moto', 'avião']
+                        print(lista) >>> ['carro', 'bicicleta', 'moto', 'avião']
+                        lista.remove('bicicleta')
+                        print(lista) >>> ['carro', 'moto', 'avião']
+                        lista.clear()
+                        print(lista) >>> []
+                        
+        Outras funções da lista:
+             .sort >>> para ordenar a lista
+             .reverse >>> para inverter os elementos dela.
+             Ambos alteram a própria lista!
+             Exemplo:
+                        lista = [3, 2, 1, 6, 9]
+                        print(lista) >>> [3, 2, 1, 6, 9]
+                        lista.sort()
+                        print(lista) >>> [1, 2, 3, 6, 9]
+                        lista.reverse()
+                        print(lista) >>> [9, 6, 3, 2, 1]
+                        
+        Algumas funções internas do Python podem ser aplicadas às listas:
+            len() >>> retornam o tamanho da lista
+            min() >>> retorna o menor elemento da lista
+            max() >>> retorna o maior elemento da lista
+            sum() >>> retorna a soma dos elementos da lista
+            Exemplo:
+                        lista = [3, 7, 2, 6]
+                        print(lista) >>> [3, 7, 2, 6]
+                        print(len(lista)) >>> 4
+                        print(min(lista)) >>> 2
+                        print(max(lista)) >>> 7
+                        print(sum(lista)) >>> 18
+                        
+        Também podemos combinar essas funções para alcançar novos objetivos. 
+        Exemplo: Vamos calcular a média dos números de uma lista sem percorrê-la apenas utilizando as funções sum e len:
+                        lista = [1, 3, 5, 7, 9]
+                        print(lista) >>> [1, 3, 5, 7, 9]
+                        print(sum(lista)) >>> 25
+                        print(len(lista)) >>> 5
+                        media = sum(lista) / len(lista)
+                        print(media) >>> 5.0
+        
+        Operadores nas listas:
+        Alguns operadores do Python, como os de pertinência (in e not in), 
+        equivalência (==), concatenação (+) e multiplicação (*), também podem ser aplicados aos objetos do tipo list.
+        
+        Todos esses operadores retornam algum objeto, seja um booleano (True ou False), que pode ser utilizado em 
+        condicionantes if, seja uma nova lista, como acontece com o operador concatenação (+).
+        
+            "Todos esses operadores retornam algum objeto, seja um booleano (True ou False), que pode ser utilizado em 
+            condicionantes if, seja uma nova lista, como acontece com o operador concatenação (+)."
+        Exemplo:
+                        lista1 = [1, 2, 3]
+                        lista2 = [1, 2, 3]
+                        lista3 = [4, 5, 6]
+                        print(lista1 == lista2) >>> True
+                        print(lista1 == lista3) >>> False
+                        if 3 in lista1:
+                            print('Achei o 3!!!') >>> Achei o 3!!!
+                        nova_lista = lista1 + lista3
+                        print(nova_lista) >>> [1, 2, 3, 4, 5, 6]
+                        lista_repetida = lista1 * 4
+                        print(lista_repetida) >>> [1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]
+        
+        Mais sobre as listas:
+        Uma funcionalidade muito interessante e útil que o Python disponibiliza é a capacidade de criar listas e
+        partir de outras listas de forma simplificada utilizando a chamada compreensão de listas:
+        
+            A compreensão de listas permite filtrar, transformar e aplicar funções aos elementos de uma lista. 
+            Sua sintaxe é:
+                Exemplo:
+                        lista = [1, 2, 3]
+                        print(lista) >>> [1, 2, 3]
+                        nova_lista = [item*2 for item in lista]
+                        print(nova_lista) >>> [2, 4, 6]
+        Para adicionarmos um filtro, colocaremos a condicionante if após a lista. Sua sintaxe será:
+            No exemplo adiante, vamos filtrar apenas os elementos pares de uma lista, 
+            ou seja, cujo resto da divisão por dois seja zero (%2 == 0):
+            Exemplo:    
+                        lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                        print(lista) >>> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                        lista_par = [item for item in lista if item % 2 == 0]
+                        print(f'Lista par: {lista_par}') >>> Lista par: [2, 4, 6, 8, 10]
+                        lista_impar = [item for item in lista if item % 2 != 0]
+                        print(f'Lista impar: {lista_impar}') >>> Lista impar: [1, 3, 5, 7, 9]
+                        
+        Criando cópias de listas (Shallow Copy versus Deep Copy):
+            Exemplo:
+                        import copy
+                        lista1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+                        lista2 = copy.copy(lista1)
+                        lista1[2][2] = 10
+                        print(f'Lista 01: {lista1}') 
+                            >>> Lista 01: [[1, 2, 3], [4, 5, 6], [7, 8, 10]]
+                        print(f'Lista 02 com copy da lista1: {lista2}') 
+                            >>> Lista 02 com copy da lista1: [[1, 2, 3], [4, 5, 6], [7, 8, 10]]
+                        
+                        lista1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+                        lista2 = copy.deepcopy(lista1)
+                        lista1[2][2] = 10
+                        print(f'Lista 01: {lista1}') 
+                            >>> Lista 01: [[1, 2, 3], [4, 5, 6], [7, 8, 10]]
+                        print(f'Lista 02 com deepcopy da lista1: {lista2}') 
+                            >>> Lista 02 com deepcopy da lista1: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+            
+            
 """
