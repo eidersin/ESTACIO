@@ -370,3 +370,279 @@ Conceitos de lista:
             
             
 """
+# Estrutura de dados Pilha
+"""
+Pilhas:
+    Os elementos são inseridos ou removidos sempre a partir de um único ponto: o topo.
+    Assim como as listas, as pilhas são não homogêneas, dinâmicas e lineares. O princípio de funcionamento de uma 
+    pilha é o LIFO (do inglês last in, first out, ou seja, último a entrar, primeiro a sair).
+    
+    As operações de inserção e remoção de um item na pilha são normalmente chamadas de push e pop. Elas fazem as 
+    Seguintes inserções:
+        Operação push - 
+            Insere um item no topo da pilha.
+        Operação pop - 
+            Remove o item do topo da pilha.
+    
+    O Python não contém uma classe específica para Pilha, porém a classe list contém dois métodos que fazem com que a 
+    lista se comporte como uma pilha. Observe cada um deles:
+        Append: Esse método inclui um elemento sempre ao final da lista. Ele faz o papel do push.
+        Pop: Esse método retorna e remove o último elemento da lista. Ele faz o papel do próprio pop. 
+        
+Manipulando os dados da pilha:
+                    pilha = []
+                    pilha.append(1)
+                    pilha.append(2)
+                    pilha.append(3)
+                    print(pilha) >>> [1, 2, 3]
+                    pilha.append(4)
+                    print(pilha) >>>  [1, 2, 3, 4]
+                    pilha.pop()
+                    print(pilha) >>> [1, 2, 3]
+                    pilha.pop()
+                    print(pilha) >>> [1, 2]
+
+"""
+# Estrutura de dados Fila
+"""
+Filas:
+    Os elementos são inseridos sempre no final da fila, enquanto, para remover um elemento, é necessário fazê-lo pela
+    frente da fila. O final de uma fila é aquele em que fica o último elemento inserido. Não temos como recuperar um
+    lemento do meio da fila sem antes remover todos aqueles à sua frente.
+    
+    Incluindo e removendo elementos da fila:
+        Assim como as listas, as filas são:
+            Não homogêneas;
+            Dinâmicas;
+            Lineares.
+            
+        Atenção!
+        O princípio de funcionamento de uma fila é o FIFO. As operações de inserção e remoção de um item na fila são 
+        normalmente chamadas de enqueue e dequeue. 
+            O enqueue insere um item no final da fila, 
+            enquanto o dequeue o remove do início dela.
+        
+        Manipulando os dados da fila:
+                    fila = []
+                    fila.append(1)
+                    fila.append(2)
+                    fila.append(3)
+                    print(fila) >>> [1, 2, 3]
+                    fila.append(4)
+                    print(fila) >>> [1, 2, 3, 4]
+                    fila.pop(0)
+                    print(fila) >>> [2, 3, 4]
+                    fila.pop(0)
+                    print(fila) >>> [3, 4]
+            
+"""
+# Estrutura de dados Tupla
+"""
+Tuplas:
+    Em Python, a classe responsável por implementar Tuplas se chama tuple.
+    (É um dos tipos sequenciais básicos do Python, assim como list e range. Tipo de dado interno ao Python, 
+    ela não precisa ser importada.
+    
+    Quanto às suas características, as Tuplas são não homogêneas, pois podem conter elementos de diferentes tipos 
+    (inteiro, decimal, caracteres etc.); estáticas, porque seus tamanhos não podem variar durante a execução do programa
+    e lineares, já que têm seus dados organizados de forma sequencial.
+    
+    Definindo uma tupla:
+        Utilizar apenas os parênteses para iniciar uma tupla vazia : 
+            a.tupla = ()
+        
+        Utilizar elementos separados por vírgula com ou sem parênteses: 
+            a.tupla (a, b, c)
+            b.tupla = a, b, c
+        
+        Para iniciar uma tupla de apenas um item, colocar uma vírgula após esse item 
+            a.tupla (a,)
+            b.tupla = a,
+        
+        Utilizar o construtor tuple(), que aceita como parâmetro outras coleções:
+            a. tupla = tuple()
+            b. tupla = tuple([1, 2, 3])
+            c. tupla = tuple((1, 2, 3))
+            
+        Exemplo: tupla = (1, 'Hello', [1, 2], (3,4))
+                 print(tupla) >>> (1, 'Hello', [1, 2], (3, 4))
+                
+        Diferentemente das listas, as Tuplas são sequências imutáveis.
+            (Elas não podem ser alteradas durante a execução do programa.)
+            
+    Acessando os dados da Tupla:
+        A forma de acessar um elemento da Tupla é igual à das listas: precisamos apenas do índice do elemento.
+        No exemplo adiante, vamos imprimir o valor do elemento na posição 2, lembrando que o
+        primeiro elemento da tupla tem índice 0:
+        
+                    tupla = ('a', 'b', 'c')
+                    item = tupla[2]
+                    print(item) >>> 'c'
+                    
+        Assim como nas listas, podemos utilizar o método index para encontrar o índice de um elemento.   
+        
+                    tupla = ('a', 'b', 'c')
+                    indice_a = tupla.index('a')
+                    print(indice_a) >>> 0
+        
+    Iterando a Tupla:
+        As Tuplas são iteráveis (iterable), ou seja, capazes de retornar seus elementos um de cada vez. 
+        Para percorrermos as Tuplas, utilizaremos a mesma sintaxe das listas
+                    
+                    tupla = ('a', 'b', [1, 2, 3], (1, 2, 3))
+                    print(tupla) >>> ('a', 'b', [1, 2, 3], (1, 2, 3))
+                    for elemento in tupla:
+                        print(elemento) >>> a
+                                        >>> b
+                                        >>> [1, 2, 3]
+                                        >>> (1, 2, 3)
+                                        
+    Alterar a Tupla:
+        Como as Tuplas não podem ser alteradas, nenhum dos métodos apresentados para as listas que implicam alguma 
+        modificação está presente nas Tuplas, incluindo o sort e o reverse.     
+    
+    Outras funções da Tupla:
+        As funções internas do Python aplicadas às listas também se aplicam às Tuplas: len, min, max e sum, 
+        assim como os operadores de pertinência (in e not in), equivalência (==), concatenação (+) e multiplicação (*), 
+        também podem ser aplicados aos objetos do tipo tuple. Isso se dá porque todas essas funções e operadores 
+        retornam um novo valor e não alteram a tupla.      
+        
+    Por fim, vamos comparar as Tuplas com as Listas:
+        - As Tuplas são mais eficientes que as Listas;
+        - As Tuplas podem ser utilizadas como chave para a estrutura de dados Hash implementada em Python, 
+        como dicionário, classe dict;
+        - As Tuplas podem ser incluídas em conjuntos (sets).
+    
+    Muitos desenvolvedores veem as Tuplas apenas como listas estáticas, mas os elementos delas normalmente têm um 
+    significado. A alteração desses elementos, portanto, pode quebrar a semântica, como, por exemplo, armazenar o dia, 
+    o mês e o ano de nascimento de uma pessoa.
+    
+"""
+# Estrutura de dados Conjunto
+"""
+Conjuntos (Set):
+    Em Python, a classe responsável por implementar os Conjuntos se chama Set.
+        (Coleção não ordenada cujos elementos são únicos e imutáveis. Ela é um tipo de dado interno ao Python 
+        e não precisa ser importada.)
+        
+        "Os Conjuntos podem ser utilizados para remover itens duplicados de outras sequências ou testes de pertinência e 
+        computar operações matemáticas, como união e interseção, entre outras."
+        
+    Quanto às suas características, os Conjuntos são:
+        - Não homogêneos: Pois podem conter elementos de diferentes tipos (inteiro, decimal, caracteres etc.).
+        - Dinâmicos: Já que seus tamanhos podem variar durante a execução do programa quando inserimos 
+          e removemos elementos.
+        - Não lineares: Porque seus dados não são organizados de forma sequencial.
+    
+    Definindo um conjunto:
+        Para inicializarmos um objeto do tipo Set, podemos proceder de duas formas:
+            - Utilizar chaves com elementos separados por vírgula:
+                    
+                    a.conjunto = {1, 2, 3}
+                    
+            - Utilizar o construtor set(), que aceita como parâmetro outras coleções:
+            
+                    a.conjunto = set()
+                    b.conjunto = ((1, 2, 3))
+                    c.conjunto = ([1, 2, 3])
+        
+        Assim como nas Listas, os elementos de um conjunto podem ser de diferentes tipos, desde que o próprio elemento 
+        e seus filhos sejam imutáveis, como no exemplo a seguir, em que temos como elementos um 
+        número inteiro, uma string e uma tupla:
+        
+                    conjunto = {1, 'Hello', (3,4)}
+                    print(conjunto) >>> {1, 'Hello', (3, 4)}
+                
+            Apesar de os elementos de um conjunto serem imutáveis, os Conjuntos são coleções mutáveis, ou seja, 
+            eles podem ser alterados durante a execução do programa.
+    
+    Acessando os dados do Conjunto:      
+        Como os Conjuntos não são organizados sequencialmente, eles não armazenam seus elementos em índices; com isso, 
+        não podemos acessá-los diretamente pela sua posição, como fazemos nas listas. Para recuperarmos um elemento, 
+        precisamos iterar sobre o conjunto ou utilizar o método pop, que será apresentado a seguir.
+        
+    Iterando o Conjunto: 
+        Os Conjuntos, assim como as Listas, também são iteráveis (iterable), ou seja, capazes de 
+        retornar seus elementos um de cada vez. Para percorrermos os Conjuntos, utilizamos a mesma sintaxe das Listas, 
+        como se pode verificar no exemplo a seguir:
+            
+                    conjunto = {'a', 1, 2020, (28, 12), 'a'} <<< itens duplicados são automaticamente removidos
+                    for elemento in conjunto:
+                        print(elemento) >>> a
+                                            1
+                                            (28, 12)
+                                            2020
+                                            
+        Como os Conjuntos não armazenam seus elementos de forma sequencial, eles são retornados de forma aleatória.
+    
+    Alterando o Conjunto:
+        Quando precisamos inserir um novo elemento no Conjunto, utilizamos o método add. Esse método vai inserir o 
+        elemento passado como parâmetro se ele ainda não existir no conjunto.
+                    
+                    " Lembre-se de que os Conjuntos não contêm objetos repetidos. "
+        
+                    conjunto = set()
+                    print(conjunto) >>> set()
+                    conjunto.add(1)
+                    conjunto.add(2)
+                    print(conjunto) >>> {1, 2}
+                    conjunto.add(2) <<< por não conter itens duplicados, a inserção é ignorada
+                    print(conjunto)>>> {1, 2}
+        
+        Além do método para adicionar, o objeto do tipo Set contém métodos para remover elementos do conjunto. 
+        Utilizamos o método discard e remove para remover elementos do Set.
+        
+        Nos dois métodos, o elemento é passado como parâmetro. A diferença é que, caso o elemento não exista, 
+        o remove lança um erro, enquanto o discard ignora o comando.
+
+        Também podemos utilizar o método clear para remover todos os elementos do conjunto:
+                    
+                    conjunto = {1, 2, 3}
+                    print(conjunto) >>> {1, 2, 3}
+                    conjunto.discard(1)
+                    print(conjunto) >>> {2, 3}
+                    conjunto.remove(2)
+                    print(conjunto) >>> {3}
+                    conjunto.discard(5)
+                    print(conjunto) >>> {3}
+                    conjunto.remove(5)
+                    print(conjunto) >>> ERRO
+                    conjunto.clear()
+                    print(conjunto) >>> 
+                    {}
+                    
+        Podemos extrair itens de forma aleatória do Conjunto utilizando o método pop mediante a simulação de um sorteio.
+         Confira no exemplo a seguir:
+                    
+                    conjunto = {'a', 1, 2, 3}
+                    conjunto.pop()
+                    print(conjunto) >>> {2, 3, 1} -> aleatorio dessa lista
+                    conjunto.pop()
+                    print(conjunto) >>> {3, 1} -> aleatorio dessa lista
+    
+    Outras funções do Conjunto:
+    As funções internas do Python que se aplicam às Listas também se aplicam aos Conjuntos: len, min, max e sum.
+    Os operadores de pertinência (in e not in) e equivalência (==) também podem ser aplicados aos objetos do tipo Set.
+    
+        Os objetos do tipo Set disponibilizam alguns métodos relacionados a operações matemáticas. No exemplo a seguir, 
+        mostraremos a utilização de alguns deles: union (união), intersection (intercessão) e difference (diferença). 
+        Todos esses métodos retornam um novo conjunto.
+                    
+                    conjunto_a = {1, 2, 3}
+                    conjunto_b = {4, 5, 6}
+                    conjunto_b = {3, 4, 5}
+                    uniao = conjunto_a.union(conjunto_b)
+                    print(uniao) >>> {1, 2, 3, 4, 5}
+                    intersecao = conjunto_a.intersection(conjunto_b)
+                    print(intersecao) >>> {3}
+                    diferenca = conjunto_a.difference(conjunto_b)
+                    print(diferenca) >>> {1, 2}
+    
+        O Python permite utilizar operadores para realizar essas mesmas operações:
+
+            operador |: união;
+            operador &: interseção;
+            operador -: diferença.
+                    
+"""
+
