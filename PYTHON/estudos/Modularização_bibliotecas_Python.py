@@ -200,7 +200,176 @@ Funções de ordem superior (higher order definition):
                         
                         if __name__ == '__main__':
                             main()
+                            
+                            
+                            
+                        def multiplicar():
+                        multiplicador = 3
+                        print('Resultadodo da multiplicação: ', valor * multiplicador)
+                    
+                    valor = int(input('Digite um valor: '))
+                    multiplicar()
+                    print(f'Variável valor {valor}')
+                    while True:
+                        if valor < 1000:
+                            print('Valor menor que 1000.', valor)
+                            break
+                            
+            //////////////////////////////////////////////////////////////////////////////////////////////////
+                    
+                    def escopo():
+                        global variavel_a
+                        variavel_a = 1
+                        variavel_b = 2
+                        print(f'Variavel A dentro da função: {variavel_a}')
+                        print(f'Variavel B dentro da função : {variavel_b}')
+                        print(f'Variavel C dentro da função: {variavel_c}')
+                    
+                    
+                    variavel_a = 10
+                    variavel_b = 20
+                    variavel_c = 30
+                    
+                    escopo()
+                    
+                    print(f'Variavel A global: {variavel_a}')
+                    print(f'Variavel B global: {variavel_b}')
+                    print(f'Variavel C global: {variavel_c}')
+                    
+                    
+                    def teste(entrada, saida):
+                        print(entrada, saida)
+                    
+                    teste('carro', 'moto')
+                    teste(saida='moto', entrada='carro')
+                    
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    
+                    def transforma(valor):
+                        return valor ** 2
+                    
+                    a = 5
+                    b = 10
+                    a = transforma(a)
+                    c = a + b
 """
 
+# Módulos em Python
+"""
+Ex22 e 23.
+"""
 
-
+# Interface Gráfica com o Usuário (GUI)
+"""
+Biblioteca Tkinter
+    Utilização da biblioteca Tkinter:
+    
+                    from tkinter import *
+                    def funcClique():
+                        print('Botão foi executado com sucesso')
+                    janela = Tk()
+                    frase = Label(master = janela, text = 'Para observar o clique do botão, clique novamente.')
+                    frase.pack()
+                    
+                    botao = Button(master = janela, text = 'Clique no botão', command = funcClique)
+                    botao.pack()
+                    
+                    janela.mainloop()
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
+    Inicialmente, importamos o módulo tkinter na linha 1 e chamamos a função _teste() do módulo tkinter na linha 3. 
+    Essa função abre uma janela para verificar se está tudo instalado corretamente.
+    
+                    import tkinter
+                    tkinter._test()
+                    
+                    tkinter.mainloop()
+        
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    Outros exemplos de métodos do objeto do tipo Tk são: winfo_height(), que retorna a altura da janela, e title(), 
+    que retorna o texto apresentado no título da janela.
+    
+    utilizamos o método place do objeto botao para definir as coordenadas da posição do botão na tela, como visto a 
+    seguir:
+    
+                    from tkinter import *
+                    
+                    def acao():
+                        print('Botão presionado!')
+                    
+                    
+                    principal = Tk()
+                    botao = Button(principal, text='Olá', command=acao)
+                    botao.place(x=100, y=100)
+                    
+                    principal.mainloop()
+        
+    x = esquerda para direita
+    y = cima para baixo
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    Organização dos componentes na tela:
+    Para adicionar uma entrada de dados, podemos utilizar a classe Entry, que representa uma caixa de texto de uma linha
+    
+    * Atenção!:  Normalmente, uma caixa de texto vem acompanhada de uma etiqueta (label) para indicar o que aquela caixa 
+    de texto espera como entrada: idade, nome, peso etc. No tkinter, a classe Label implementa as etiquetas. *
+    
+    Para organizar os elementos na tela, utilizamos o método grid que está presente nos componentes gráficos do tkinter.
+    esse método permite dispor os elementos como em uma tabela, utilizando como parâmetros coordenadas de:
+    linha (row) e coluna (column).
+    
+                    from tkinter import *
+                
+                    def acao():
+                        print('Botão pressionado!')
+                    
+                    principal = Tk()
+                    
+                    botao = Button(principal, text='Olá', command=acao)
+                    botao.grid(row=0, column=2)
+                    
+                    texto = Entry(principal)
+                    texto.grid(row=0, column=1)
+                    
+                    entiqueta = Label(principal, text='Label:')
+                    entiqueta.grid(row=0, column=0)
+                    
+                    principal.mainloop()
+                    
+            Tela:
+                        column 0	column 1	column 2
+                row 0	etiqueta	texto	    botao
+                
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Entrada de dados e alertas:
+        Outro componente que o tkinter disponibiliza é o alerta. Os alertas servem para mostrar alguma mensagem 
+        importante ao usuário. Normalmente, aparece na frente das outras janelas.
+        
+    * Atenção! No tkinter, o módulo messagebox implementa alguns tipos de alerta, como alerta de erro, informação, 
+    confirmação de ação, entre outros. *
+    
+                    from tkinter import *
+                    from tkinter import messagebox
+                    
+                    def acao():
+                        print('Botão pressionado!')
+                        msg = messagebox.showinfo('Alerta!!!.', texto.get())
+                    
+                    principal = Tk()
+                    
+                    botao = Button(principal, text='Olá', command=acao)
+                    botao.grid(row=0, column=2)
+                    
+                    texto = Entry(principal)
+                    texto.grid(row=0, column=1)
+                    
+                    etiqueta = Label(principal, text='Label:')
+                    etiqueta.grid(row=0, column=0)
+                    
+                    principal.mainloop()
+                    
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+"""
