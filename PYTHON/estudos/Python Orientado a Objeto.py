@@ -94,5 +94,64 @@ Propriedades da POO
     Cada nome de atributo é único dentro de uma classe; no entanto, essa premissa não é verdadeira quando se consideram
     todas as classes. Por exemplo, as classes Pessoa e Empresa podem ter um atributo comum chamado de Endereço.
 
+    O conceito de encapsulamento:
+        Seu conceito consiste na separação dos aspectos externos (operações) de um objeto acessíveis a outros objetos,
+        além de seus detalhes internos de implementação, que ficam ocultos dos demais objetos (RUMBAUGH, 1994). Algumas
+        vezes, o encapsulamento é conhecido como o princípio do ocultamento de informação, pois permite que uma classe
+        encapsule atributos e comportamentos, ocultando os detalhes da implementação. Partindo desse princípio, a
+        interface de comunicação de um objeto deve ser definida a fim de revelar o menos possível sobre o seu
+        funcionamento interno.
 
+    Os mecanismos de herança e polimorfismo:
+
+        Herança:
+            Na orientação a objetos, a herança é um mecanismo por meio do qual classes compartilham atributos e
+            comportamentos, formando uma hierarquia. Uma classe herdeira recebe as características de outra classe para
+            reimplementá-las ou especializá-las de uma maneira diferente da classe pai.
+
+            A herança permite capturar similaridades entre classes, dispondo-as em hierarquias. As similaridades
+            incluem atributos e operações sobre as classes (FARINELLI, 2020).
+
+
+                                           VEICULO
+                    CARRO           MOTO            CAMINHÃO            ONIBUS
+
+            No esquema anterior, as classes Carro, Moto, Caminhão e Ônibus herdam características em comum da classe
+            Veículo, como os atributos chassis, ano, cor e modelo.
+
+            Uma classe pode ser definida genericamente como uma superclasse e, em seguida, especializada em classes mais
+            específicas (subclasses). A herança permite a reutilização de código em larga escala, pois possibilita que
+            se herde todo o código já implementado na classe pai e se adicione apenas o código específico para as novas
+            funcionalidades implementadas pela classe filha.
+
+            A evolução dos sistemas orientados a objetos também é facilitada, uma vez que, caso surja uma classe nova
+            com atributos e/ou operações comuns a outra, basta inseri-la na hierarquia, acelerando a implementação.
+
+            Conheça a seguir os tipos de herança:
+
+                HERANÇA SIMPLES:
+                    A herança é considerada simples quando uma classe herda as características existentes apenas de uma
+                    superclasse. A figura adiante apresenta uma superclasse Pessoa, que possui os atributos CPF, RG,
+                    Nome e Endereço. Em seguida, a classe Professor precisa herdar os atributos dessa superclasse,
+                    além de adicionar atributos específicos do contexto da classe Professor, como titularidade e salário
+
+
+                HERANÇA MÚLTIPLA:
+                    A herança é considerada múltipla quando uma classe herda características de duas ou mais
+                    superclasses. Por exemplo, no caso do sistema acadêmico, o docente também pode desejar realizar
+                    outro curso de graduação na mesma instituição em que trabalha.
+
+                    Ele, portanto, possuirá os atributos da classe Professor e os da classe Aluno. Além disso, também
+                    haverá um atributo DescontoProfessor, que será obtido apenas quando houver a associação de professor
+                    e aluno com a universidade.
+
+                    Para adaptar essa situação no mundo real, deve ser criada uma modelagem de classes. Uma nova
+                    subclasse ProfessorAluno precisa ser adicionada, herdando atributos e operações das classes
+                    Professor e Aluno. Isso configura uma herança múltipla. Essa nova subclasse deverá ter o atributo
+                    DescontoProfessor, que faz sentido apenas para essa classe.
+
+        Polimorfismo:
+            O polimorfismo é a capacidade de haver o mesmo comportamento diferente em classes diferentes.
+            Uma mesma mensagem será executada de maneira diversa, dependendo do objeto receptor. O polimorfismo
+            acontece quando reimplementamos um método nas subclasses de uma herança
 """
