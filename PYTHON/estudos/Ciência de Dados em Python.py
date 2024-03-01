@@ -171,3 +171,57 @@ plt.legend()
 # Exibindo o gráfico
 plt.show()"""
 
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+class Despesas:
+    def __init__(self, dias):
+        self.dias = dias
+        self.x = np.linspace(1, dias, dias)  # Dias
+        self.y_alimentacao = [int(input(f"Despesas de alimentação no dia {i+1}: ")) for i in range(dias)]  # Despesas de alimentação
+        self.y_vestuario = [int(input(f"Despesas de vestuário no dia {i+1}: ")) for i in range(dias)]  # Despesas de vestuário
+        self.y_transporte = [int(input(f"Despesas de transporte no dia {i+1}: ")) for i in range(dias)]  # Despesas de transporte
+
+    def plot(self):
+        plt.plot(self.x, self.y_alimentacao, label='Alimentação', color='lightblue', marker='o', markerfacecolor='blue')
+        plt.plot(self.x, self.y_vestuario, label='Vestuário', color='red', marker='o', markerfacecolor='blue')
+        plt.plot(self.x, self.y_transporte, label='Transporte', color='green', marker='o', markerfacecolor='blue')
+
+        plt.title('Gráficos de Despesas')
+        plt.xlabel('Dia')
+        plt.ylabel('Despesas em R$')
+        plt.legend()
+
+        plt.show()
+
+class RegressaoLinear:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.model = LinearRegression()
+        self.model.fit(self.x, self.y)
+
+    def predict(self):
+        y_pred = self.model.predict(self.x)
+        return y_pred
+
+    def plot(self, y_pred):
+        plt.plot(self.x, y_pred, label='Regressão Linear', color='blue')
+        plt.plot(self.x, self.y, label='Alimentação - Original', color='lightblue', marker='o', markerfacecolor='blue')
+
+        plt.legend()
+
+        plt.show()
+
+# Uso das classes
+dias = int(input("Quantos dias de despesas você gostaria de inserir? "))
+despesas = Despesas(dias)
+despesas.plot()
+
+x = np.linspace(1, 5, 5).reshape(-1, 1)  # Dias
+y_alimentacao = np.array([100, 0, 0, 150, 0]).reshape(-1, 1)  # Despesas de alimentação
+
+regressao = RegressaoLinear(x, y_alimentacao)
+y_pred = regressao.predict()
+regressao.plot(y_pred)
