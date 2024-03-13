@@ -292,4 +292,41 @@ escolha.grid(column = 1, row = 5)
 escolha.current()
 janela.mainloop()
 
+
 """
+# cur.execute('''CREATE TABLE Agenda_teste(ID INT PRIMARY KEY NOT NULL, Nome TEXT NOT NULL, Telefone CHAR(12))''')
+# cur.execute("""INSERT INTO public."AGENDA" ("id", "nome", "telefone") VALUES (1, 'Pessoa 1', '02199999999')""")
+# cur.execute('''select * from public."AGENDA" where "id"=1''')
+# cur.execute('''Update public."AGENDA" set "telefone"='021777777777' where "id"=1''')
+# cur.execute('''Delete from public."AGENDA" where "id"=1''')
+
+import psycopg2
+
+conn = psycopg2.connect(database="AGENDA", user="postgres", password="derson123", host="127.0.0.1", port="5432")
+print("Conexão com o Banco de Dados aberta com sucesso!")
+cur = conn.cursor()
+
+# SELECIONAR REGISTRO DA TABELA
+cur.execute('''select * from public."AGENDA" where "id"=1''')
+registro = cur.fetchone()
+
+# ATUALIZAR REGISTRO DA TABELA
+# cur.execute("""Update public."AGENDA" set "telefone"='021666666' where "id"=1""")
+# conn.commit()
+# print("Registro Atualizado com sucesso! ")
+# cur = conn.cursor()
+# print(" Consulta depois da atualização")
+# cur.execute("""select * from public."AGENDA" where "id"=1""")
+# registro=cur.fetchone()
+# print(registro)
+# conn.commit()
+
+# EXCLUIR REGISTRO DA TABELA
+# cur.execute("""Delete from public."AGENDA" where "id"=1""")
+# conn.commit()
+#cont=cur.rowcount
+#print(cont, "Registro excluído com sucesso!")
+#print("Exclusão realizada com sucesso!");
+
+print(registro)
+conn.close()

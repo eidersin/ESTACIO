@@ -255,15 +255,15 @@ Tratamento de eventos:
     interface gráfica de usuário (GUI).
 
 """
-a = 0
-for i in range(30):
-    if a % 2 == 0:
-        a += 1
-        continue
-    else:
-        if a % 5 == 0:
-            break
-else:
-    a += 3
+minha_lista = [0, 5, 10, 15, 20, 25, 30]
 
-print(a)
+
+def filtro(numero):
+    if numero > 10:
+        return True
+    return False
+
+
+minha_lista_filtrada = list(filter(filtro, minha_lista))
+
+print(minha_lista_filtrada)
